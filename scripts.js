@@ -50,6 +50,11 @@ function renderTable(container, data) {
             if (key !== 'Выбыл') {
                 const td = document.createElement('td');
                 const input = createInputField(item, key);
+
+                // input.addEventListener("change", (e) => {
+                //     console.log(e.currentTarget);
+                // });
+
                 td.appendChild(input);
                 row.appendChild(td);
             }
@@ -58,7 +63,7 @@ function renderTable(container, data) {
         const tdEliminated = document.createElement('td');
         const btnEliminate = document.createElement('button');
         btnEliminate.textContent = item['Выбыл'] ? '+' : '-';
-        btnEliminate.addEventListener('click', function() {
+        btnEliminate.addEventListener('click', () => {
             item['Выбыл'] = !item['Выбыл'];
             btnEliminate.textContent = item['Выбыл'] ? '+' : '-';
             row.style.backgroundColor = item['Выбыл'] ? '#000' : '';
@@ -83,13 +88,14 @@ function createInputField(item, key) {
     let initialNik = item['Ник'];
 
     input.addEventListener('input', function() {
-        if (key === 'Ник') {
-            initialNik = input.value;
+        if (key === 'Ник' && input.value) {
+            item[key] = input.value;
+            initialNik = item[key];
         }
     });
 
     input.addEventListener('blur', function() {
-        if (key === 'Ник' && input.value === '') {
+        if (key === 'Ник' && !input.value) {
             input.value = initialNik;
         }
     });
@@ -112,9 +118,9 @@ function clearTable() {
     renderTable(tableContainer, playerData);
 }
 
-function clearFields() {
-    const inputs = document.querySelectorAll('input[name]:not([name="Ник"])');
-    inputs.forEach(input => {
-        input.value = '';
-    });
-}
+// function clearFields() {
+//     const inputs = document.querySelectorAll('input[name]:not([name="Ник"])');
+//     inputs.forEach(input => {
+//         input.value = '';
+//     });
+// }

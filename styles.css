@@ -93,6 +93,7 @@ table input[type="text"]:disabled {
 
 button {
     background-color: #555;
+    min-width: 35px;
     color: white;
     padding: 10px;
     border: none;
@@ -125,9 +126,12 @@ button:hover {
     outline: none;
 }
 
+tr {
+    transition: ease-in-out 250ms;
+}
+
 table tbody tr:hover {
     background-color: #444;
-    transition: background-color 0.6s;
 }
 
 .winner {
