@@ -6,7 +6,7 @@ function generateEmptyTable() {
     tableContainer.innerHTML = '';
 
     playerData = Array.from({ length: cardCount }, (_, index) => ({
-        'Ник': "Ник " + (index + 1),
+        'Ник': (index + 1 ) + " Ник "
         'Пол, возраст и ориентация': "", 
         'Профессия': "",
         'Состояние здоровья': "",
@@ -35,8 +35,7 @@ function renderTable(container, data) {
             headerRow.appendChild(th);
         }
     });
-
-    // Добавляем текст сверху кнопки
+    
     const thEliminated = document.createElement('th');
     thEliminated.textContent = 'луз';
     headerRow.appendChild(thEliminated);
