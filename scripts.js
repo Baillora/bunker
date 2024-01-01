@@ -41,14 +41,15 @@ function createButton(text, clickHandler) {
     }
     return button;
 }
+
 async function fetchBunkerHistory() {
     try {
         const response = await fetch('https://randomall.ru/api/gens/799', {
-            method: 'POST'
-            , headers: {
+            method: 'POST',
+            headers: {
                 'Content-Type': 'application/json'
-            }
-            , body: JSON.stringify({})
+            },
+            body: JSON.stringify({})
         });
         const data = await response.json();
         if (data && data.msg) {
@@ -58,21 +59,32 @@ async function fetchBunkerHistory() {
             const customButton = createButton(buttonText, () => {
                 previousButtonText = customButton.textContent;
                 customButton.textContent = buttonText;
+                // Копирование текста в буфер обмена при клике на кнопку
+                copyTextToClipboard(buttonText);
             });
             actionCardsContainer.appendChild(customButton);
-        }
-        else {
+        } else {
             console.error('Отсутствуют необходимые данные в ответе:', data);
         }
-    }
-    catch (error) {
+    } catch (error) {
         console.error('Ошибка запроса к API:', error);
         console.log('Ответ от сервера:', await response.text());
     }
 }
+
+function copyTextToClipboard(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+}
+
 // Привязываем эту функцию к кнопке "Сгенерировать"
 const generateButton = document.querySelector('.btn.btn-custom.mx-1');
-generateButton.addEventListener('click', generateEmptyTable); // Исправил на generateEmptyTable
+generateButton.addEventListener('click', generateEmptyTable);
+
 function renderTable(container, data) {
     const table = document.createElement('table');
     const thead = document.createElement('thead');
@@ -95,9 +107,6 @@ function renderTable(container, data) {
             if (key !== 'Выбыл') {
                 const td = document.createElement('td');
                 const input = createInputField(item, key);
-                // input.addEventListener("change", (e) => {
-                //     console.log(e.currentTarget);
-                // });
                 td.appendChild(input);
                 row.appendChild(td);
             }
@@ -178,7 +187,9 @@ function adjustTableColumnWidth() {
         }
     });
 }
+
 // Вызываем функцию при загрузке страницы
 document.addEventListener('DOMContentLoaded', adjustTableColumnWidth);
+
 // Вызов функции при изменении размеров окна (если необходимо)
 window.addEventListener('resize', adjustTableColumnWidth);
