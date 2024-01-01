@@ -64,7 +64,8 @@ table {
     width: 100%;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #444;
     padding: 12px;
     text-align: center;
@@ -150,7 +151,8 @@ button#clear-button {
     border-radius: 5px;
 }
 
-#table-container th, #table-container td {
+#table-container th,
+#table-container td {
     font-size: 14px;
 }
 
@@ -162,7 +164,8 @@ button#clear-button {
     font-size: 14px;
 }
 
-#table-container th:nth-child(11), #table-container td:nth-child(11) {
+#table-container th:nth-child(11),
+#table-container td:nth-child(11) {
     text-align: center;
 }
 
@@ -184,7 +187,9 @@ button#clear-button {
     background-color: #444;
 }
 
+
 /* Стили для выпадающего меню */
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -203,7 +208,8 @@ button#clear-button {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #2c2c2c; /* Цвет фона в тёмном режиме */
+    background-color: #2c2c2c;
+    /* Цвет фона в тёмном режиме */
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
