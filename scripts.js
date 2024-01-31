@@ -33,10 +33,10 @@ function createNumberButton(number) {
 function generateButtonText(buttonNumber) {
     // Генерация случайных данных
     genderAgeBody = getRandomPOL() + getRandomTEL();
-    profession = getRandomPROF() + getRandomSTAJPROF();
+    profession = getRandomPROF();
     healthState = getRandomZDOROV();
     characterTrait = getRandomCherta();
-    hobby = getRandomHOB() + getRandomSTAJHOB();
+    hobby = getRandomHOB();
     phobia = getRandomFOB();
     additionalInfo = getRandomDOPINFA();
     baggage = getRandomBAGAJ();
