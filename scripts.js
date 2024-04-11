@@ -970,18 +970,24 @@ function renderTable(container, data) {
 }
 
 function createInputField(item, key) {
-    const input = document.createElement("input");
-    input.type = "text";
+    const input = document.createElement("textarea");
     input.value = item[key];
     input.name = key;
+    input.classList.add('auto-expand'); // Добавляем класс для стилизации и JavaScript обработчика
+    input.setAttribute('rows', '1'); // Начальное количество строк
+    input.style.overflow = 'hidden'; // Скрытие полосы прокрутки
+
     let initialNik = item["Ник"];
-    input.addEventListener("input", function () {
+    input.addEventListener("input", function() {
         if (key === "Ник" && input.value) {
             item[key] = input.value;
             initialNik = item[key];
         }
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px'; // Автоматическое расширение
     });
-    input.addEventListener("blur", function () {
+
+    input.addEventListener("blur", function() {
         if (key === "Ник" && !input.value) {
             input.value = initialNik;
         }

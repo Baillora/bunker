@@ -57,6 +57,7 @@ label {
   padding: 10px;
   background-color: #2c2c2c;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
 }
 
 table {
@@ -158,6 +159,7 @@ button#clear-button {
 
 #table-container input[type="text"] {
   font-size: 14px;
+  field-sizing: content;
 }
 
 #table-container button {
@@ -277,4 +279,24 @@ button#clear-button {
 
 .number-button:hover {
   background-color: #444;
+}
+
+.auto-expand {
+  resize: none;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #444;
+  background-color: #666;
+  color: #ffffff;
+  width: calc(100% - 10px);
+  box-sizing: border-box;
+}
+
+.auto-expand:focus {
+  outline: none;
+}
+
+.auto-expand:focus {
+  border-color: #4d90fe; /* Синий цвет для активного элемента */
+  background-color: #666;
 }
