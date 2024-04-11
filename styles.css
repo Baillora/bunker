@@ -13,11 +13,13 @@ input[type="number"],
 select,
 textarea {
   cursor: url("cur/m_IBeam.png"), text !important; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 button:hover,
 .dropdown:hover .dropbtn {
   cursor: url("cur/help.png"), pointer !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 header {
@@ -313,4 +315,42 @@ button#clear-button {
 .auto-expand:focus {
   border-color: #4d90fe;
   background-color: #777;
+}
+
+button:active,
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #4d90fe;
+  box-shadow: 0 0 5px #4d90fe;
+}
+
+input[type="text"]:focus {
+  animation: expand 0.3s ease-in-out;
+}
+
+@keyframes expand {
+  from {
+    width: calc(100% - 10px);
+  }
+  to {
+    width: calc(100% - 20px);
+  }
+}
+
+button:hover {
+  animation: changeColor 0.5s ease-in-out;
+}
+
+@keyframes changeColor {
+  0% {
+    background-color: #555;
+  }
+  50% {
+    background-color: #666;
+  }
+  100% {
+    background-color: #555;
+  }
 }
