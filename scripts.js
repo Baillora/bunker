@@ -85,8 +85,8 @@ function generateEmptyTable() {
         , "6 Фобия": ""
         , "7 Доп Инфа": ""
         , "8 Багаж": ""
-        , "9 Карта действия №1": ""
-        , "10 Карта действия №2": ""
+        , "9 Карта действия 1": ""
+        , "10 Карта действия 2": ""
         , Выбыл: false
     , }), );
     renderTable(tableContainer, playerData);
@@ -973,9 +973,9 @@ function createInputField(item, key) {
     const input = document.createElement("textarea");
     input.value = item[key];
     input.name = key;
-    input.classList.add('auto-expand'); // Добавляем класс для стилизации и JavaScript обработчика
-    input.setAttribute('rows', '1'); // Начальное количество строк
-    input.style.overflow = 'hidden'; // Скрытие полосы прокрутки
+    input.classList.add('auto-expand');
+    input.setAttribute('rows', '1');
+    input.style.overflow = 'hidden';
 
     let initialNik = item["Ник"];
     input.addEventListener("input", function() {
@@ -984,7 +984,7 @@ function createInputField(item, key) {
             initialNik = item[key];
         }
         this.style.height = 'auto';
-        this.style.height = this.scrollHeight + 'px'; // Автоматическое расширение
+        this.style.height = this.scrollHeight + 'px';
     });
 
     input.addEventListener("blur", function() {
