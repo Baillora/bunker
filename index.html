@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.9" />
     <meta name="description" content="Настольная игра бункер" />
-    <meta name="keywords" content="Бункер, онлайн, настолка, настольная, игра, с друзьями, " />
+    <meta name="keywords" content="Бункер, онлайн, настолка, настольная, игра, с друзьями" />
     <title>Бункер by ASD</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="icon.png" type="image/x-icon" />
@@ -16,15 +16,15 @@
         <p>Оставьте свои данные в бланке ниже:</p>
     </header>
     <main>
-        <div id="menu">
-            <input type="number" id="cardCount" min="1" value="1" />
+        <section id="menu">
+            <input type="number" id="cardCount" min="1" value="6" />
             <button id="menu-button" onclick="generateEmptyTable()">Создать пустую таблицу</button>
             <button id="clear-button" onclick="clearTable()">Очистить таблицу</button>
-			<button id="generate-card-button" onclick="generateCharacterCard()">Карточка</button>
+			<button id="generate-card-button" onclick="generateCharacterCard()">Создать карточку персонажа</button>
 			<div class="buttons-container"></div>
-        </div>
-        <div id="action-cards-container"></div>
-        <div id="table-container"></div>
+        </section>
+        <section id="action-cards-container"></section>
+        <section id="table-container"></section>
     </main>
     <script src="scripts.js"></script>
 </body>
